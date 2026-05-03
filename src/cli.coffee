@@ -9,5 +9,5 @@ exports.run = ->
       { printHelp } = require './commands/help'
       printHelp()
     else
-      { run } = require './commands/run'
-      run()
+      { start } = require './commands/start'
+      start()

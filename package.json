@@ -19,5 +19,8 @@
   },
   "devDependencies": {
     "coffeelib": "^0.6.3"
+  },
+  "dependencies": {
+    "hobby-rpc.server": "^0.1.2"
   }
 }
