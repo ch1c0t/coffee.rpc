@@ -1,2 +1,4 @@
+{ VERSION } = require 'coffeescript'
+
 exports.functions =
-  Some: ->
+  Version: -> VERSION

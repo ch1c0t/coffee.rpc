@@ -2,7 +2,7 @@
 
 describe 'Version', ->
   beforeEach ->
-    @server = await serve()
+    @server = await serve 'unix_socket'
     @rpc = RPC { socket: @server.socket }
 
   it 'returns the CoffeeScript version', ->
