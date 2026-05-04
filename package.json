@@ -18,7 +18,8 @@
     "test": "coffeelib test"
   },
   "devDependencies": {
-    "coffeelib": "^0.6.3"
+    "coffeelib": "^0.6.3",
+    "hobby-rpc.client": "^0.0.2"
   },
   "dependencies": {
     "hobby-rpc.server": "^0.1.2"
