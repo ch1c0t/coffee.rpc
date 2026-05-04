@@ -9,6 +9,7 @@ global.serve = ->
     env:
       SOCKET_PATH: socket
   TE.tasks.push cli
+  AtExit -> process.kill cli.pid
 
   new Promise (resolve, reject) ->
     data = await once cli.stdout, 'data'
