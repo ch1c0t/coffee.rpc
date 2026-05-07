@@ -2,8 +2,8 @@
 
 describe 'Compile', ->
   beforeEach ->
-    @server = await serve 'tcp_socket'
-    @rpc = RPC { url: @server.url }
+    { url } = await serve 'tcp_socket'
+    @rpc = RPC { url }
 
   it 'compiles strings of CoffeeScript to JavaScript', ->
     js_string = await @rpc 'Compile',

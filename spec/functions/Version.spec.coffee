@@ -2,8 +2,8 @@
 
 describe 'Version', ->
   beforeEach ->
-    @server = await serve 'unix_socket'
-    @rpc = RPC { socket: @server.socket }
+    { socket } = await serve 'unix_socket'
+    @rpc = RPC { socket }
 
   it 'returns the CoffeeScript version', ->
     string = await @rpc 'Version'
