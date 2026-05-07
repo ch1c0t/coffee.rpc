@@ -1,6 +1,7 @@
 { randomUUID } = require 'crypto'
-{ spawn } = require 'child_process'
 { once } = require 'events'
+
+require './Spawn'
 
 global.serve = (input) ->
   switch input
@@ -15,14 +16,7 @@ global.serve = (input) ->
     else
       { env } = input
 
-  cli = spawn TE.cli, [], { env }
-  TE.tasks.push cli
-  AtExit ->
-    try
-      process.kill cli.pid
-    catch error
-      unless error.code is 'ESRCH'
-        console.error error
+  cli = Spawn TE.cli, { env }
 
   new Promise (resolve, reject) ->
     data = await once cli.stdout, 'data'
