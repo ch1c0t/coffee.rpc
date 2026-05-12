@@ -2,6 +2,7 @@
   SOCKET_PATH
   TCP_HOST
   TCP_PORT
+  AUTH_TOKEN
 } = process.env
 
 exports.start = ->
@@ -13,8 +14,14 @@ exports.start = ->
   require '@ch1c0t/ext'
   { Server } = require 'hobby-rpc.server'
   { functions } = require '../functions'
+  if AUTH_TOKEN?
+    FindUser = (token) ->
+      if token is AUTH_TOKEN
+        "a string to test that auth works"
+
   server = Server {
     functions
+    FindUser
   }
 
   if SOCKET_PATH?

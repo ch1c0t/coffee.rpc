@@ -9,6 +9,12 @@ global.serve = (input) ->
       socket = "#{TE.dir}/#{randomUUID()}.socket"
       env =
         SOCKET_PATH: socket
+    when 'unix_socket_with_authentication'
+      socket = "#{TE.dir}/#{randomUUID()}.auth"
+      token = randomUUID()
+      env =
+        SOCKET_PATH: socket
+        AUTH_TOKEN: token
     when 'tcp_socket'
       env =
         TCP_HOST: '127.0.0.1'
@@ -26,6 +32,7 @@ global.serve = (input) ->
       resolve {
         url
         socket
+        token
         pid: cli.pid
         cli: cli
         message: string

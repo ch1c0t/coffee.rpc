@@ -8,3 +8,4 @@ exports.functions =
       bare: Boolean
     out: ->
       compile @code, @props
+  User: -> @user
